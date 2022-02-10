@@ -1,0 +1,49 @@
+						-: S3StaticWebSite-With-SSL Certificate:-
+						================================
+
+S3:-
+==
+> Create S3 Bucket
+	NAME- darknight.ml
+	publicACCESS- allow
+	Static web-site- Enable
+	Policy-Add policy 
+			~Create Bucket
+Route53:-
+=======
+> Create Route53
+	- create hosted zoone
+		-A RECORD
+		-NS RECORD
+		-SOA RECORD
+			~Create hosted Zone
+ACM :-
+====
+> SSL CERTIFICATE from ACM  
+	- create ACM
+		-create Record Route53
+
+
+Cloudfront:-
+=========
+> Create Cloudfront
+	~ Create Distribution
+		* Origin domain- url of s3 static web
+	         ~ Default cache behavior
+			Viewer protocol policy
+				*Redirect HTTP to HTTPS
+
+	~  Setting
+		- Alternate domain name (CNAME) :- add name---- darknight.ml
+		- Custom SSL certificate :-  SSL certificate
+		- Default root object -- index.html
+
+> Route53:-
+=======
+	Create Record
+		-Sipmle Routing
+		-Record type--> A route traffic on IPV4
+		-Route traffic to----> alias to CLOUDfront distribution
+					~Create Record
+
+

@@ -1,0 +1,41 @@
+			Migrating from Amazon S3 to Cloud Storage using GCP Transfer Service 
+
+> Login in Both the Cloud
+
+AWS:-
+> create bucket
+	name:- s3-aws-buxxz
+	region:-choose any
+	- allow public access
+
+
+
+
+GCP: Go to cloud storage
+> create bucket
+	name:-gcpcloudbuxx
+		create
+
+> upload object in aws s3 bucket
+
+> GCP:- Create a job for tansfer data
+---> Tansfer
+		create transfer
+	source bucket:-	*amzone S3 bucket
+			name:-s3://s3-aws-buxxz
+---> Goto AWS 
+- Create Iam user
+	username- prashant
+	attached existing policy:- s3-full-access
+
+				create user
+
+---> copy access key and secrite access key and past in GCP cloud 
+	continue
+
+----> select destination bucket
+		gcpcloudbuxx
+		*run now
+		*run daily
+
+	
